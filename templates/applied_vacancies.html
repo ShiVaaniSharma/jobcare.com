@@ -1,0 +1,19 @@
+
+
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="applied-vacancies-container">
+    <h1>Your Applied Vacancies</h1>
+    <ul class="applied-vacancies-list">
+        {% for application in applications %}
+            <li class="applied-vacancy-item">
+                <h3>{{ application.vacancy.title }}</h3>
+                <p>{{ application.vacancy.description }}</p>
+                <p><strong>Status:</strong> {{ application.status }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+

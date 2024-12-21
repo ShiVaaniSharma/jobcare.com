@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div id="apply-section" class="bg-gray-100 py-8 px-4">
+    <h1 class="text-3xl font-bold text-center text-blue-600 mb-8">Available Vacancies</h1>
+    <ul class="space-y-6">
+        {% for vacancy in vacancies %}
+        <li class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-2xl font-semibold text-gray-800">{{ vacancy.title }}</h3>
+            <p class="mt-2 text-gray-600">{{ vacancy.description }}</p>
+            <p class="mt-4"><strong>Location:</strong> {{ vacancy.location }}</p>
+            <p><strong>Last Date:</strong> {{ vacancy.last_date }}</p>
+            <form class="applic" method="POST" action="{{ url_for('apply_vacancy', vacancy_id=vacancy.id) }}" class="mt-4">
+                <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-800 transition duration-300">
+                    Apply
+                </button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<!-- <script></script> -->
+{% endblock %}
+

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="dashbrd-container">
+  <div class="dashbrd-header">
+    <h1>company Dashboard</h1>
+    <p>Welcome, {{ user.username }}!</p>
+    <p>You are logged in as a company.</p>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+
+  <div id="maindiv">
+
+    <div class="profile-section">
+
+      <!-- <h2>Welcome, {{ user.username }}</h2> -->
+      {% if user.profile %}
+        <div class="profile-details">
+          <h2>Your Profile</h2>
+          <p><strong>Name:</strong> {{ user.profile.full_name }}</p>
+          <p><strong>Bio:</strong> {{ user.profile.bio }}</p>
+          {% if user.profile.profile_pic %}
+            <img src="{{ url_for('static', filename='profile_pics/' + user.profile.profile_pic) }}" alt="Profile Picture" class="company-profile-pic">
+          {% else %}
+            <img src="{{ url_for('static', filename='default_profile_pic.png') }}" alt="Default Profile Picture" class="company-profile-pic">
+          {% endif %}
+          <a href="{{ url_for('update_profile') }}" class="cmpn-btn btn-primary">Edit Profile</a>
+        </div>
+      {% else %}
+        <div class="no-profile">
+          <p>You don't have a profile yet.</p>
+          <a href="{{ url_for('create_profile') }}" class="std-btn btn-primary">Create your profile</a>
+        </div>
+      {% endif %}
+      <form method="POST" action="{{ url_for('delete_profile') }}" class="d-inline-block">
+          <button type="submit" class="std-btn btn-danger" onclick="return confirm('Are you sure you want to delete your profile?')">Delete Profile</button>
+        </form>
+    </div>
+
+    <div class="other-details">
+      <h1>Company services</h1>
+    
+    <div>
+      <a href="{{ url_for('view_company_vacancies') }}" class="btn btn-primary">View Vacancies</a>
+    </div>
+    <div>
+      <!-- Link to View Applications -->
+      <a href="{{ url_for('view_applications') }}" class="btn y1 btn-secondary">View Applications</a>
+    </div>
+    <div>
+      <!-- Other Actions -->
+      <a href="{{ url_for('create_vacancy') }}" class="btn btn-success">Create Vacancy</a>
+    </div>
+
+    </div>
+  </div>
+</div>
+{% endblock body %}
+

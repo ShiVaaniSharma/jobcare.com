@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="form-container">
+    <form method="POST">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" required>
+        </div>
+        <div class="form-group">
+            <label for="last_date">Last Date</label>
+            <input type="date" id="last_date" name="last_date" required>
+        </div>
+        <button type="submit" class="btn-submit">Create</button>
+    </form>
+</div>
+{% endblock body %}

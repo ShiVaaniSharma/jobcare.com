@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <h1>Your Vacancies</h1>
+    {% if vacancies %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Last Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for vacancy in vacancies %}
+                    <tr>
+                        <td>{{ vacancy.title }}</td>
+                        <td>{{ vacancy.description }}</td>
+                        <td>{{ vacancy.location }}</td>
+                        <td>{{ vacancy.last_date }}</td>
+                        <td>
+                            <form method="POST" action="{{ url_for('delete_vacancy', vacancy_id=vacancy.id) }}" 
+                                  onsubmit="return confirm('Are you sure you want to delete this vacancy?');">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No vacancies created yet. <a href="{{ url_for('create_vacancy') }}">Create one now!</a></p>
+    {% endif %}
+</div>
+{% endblock %}

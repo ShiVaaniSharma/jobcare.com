@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2>Your Resumes</h2>
+<ul>
+    {% for resume in resumes %}
+        <li>
+            <a href="{{ url_for('static', filename='uploads/resumes/' ~ resume.filename) }}" target="_blank">{{ resume.filename }}</a>
+            <a href="{{ url_for('serve_resume', filename=resume.filename) }}" target="_blank">{{ resume.filename }}</a>
+
+            <form action="{{ url_for('delete_resume', resume_id=resume.id) }}" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock body %}

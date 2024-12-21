@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div id="stdash-page">
+<div class="dashbrd-container">
+  <div class="dashbrd-header">
+    <h1>Student Dashboard</h1>
+    <p>Welcome, {{ user.username }}!</p>
+    <p>You are logged in as a Student.</p>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+
+  <div id="maindiv">
+    <div class="profile-section">
+      {% if user.profile %}
+        <div class="profile-details">
+          <h2>Your Profile</h2>
+          <p><strong>Name:</strong> {{ user.profile.full_name }}</p>
+          <p><strong>Bio:</strong> {{ user.profile.bio }}</p>
+          {% if user.profile.profile_pic %}
+            <img src="{{ url_for('static', filename='profile_pics/' + user.profile.profile_pic) }}" alt="Profile Picture" class="std-profile-pic">
+          {% else %}
+            <img src="{{ url_for('static', filename='default_profile_pic.png') }}" alt="Default Profile Picture" class="std-profile-pic">
+          {% endif %}
+          <a href="{{ url_for('update_profile') }}" class="std-btn btn-primary">Edit Profile</a>
+        </div>
+      {% else %}
+        <div class="no-profile">
+          <p>You don't have a profile yet.</p>
+          <a href="{{ url_for('create_profile') }}" class="std-btn btn-primary">Create your profile</a>
+        </div>
+      {% endif %}
+      <form method="POST" action="{{ url_for('delete_profile') }}" class="d-inline-block">
+          <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete your profile?')">Delete Profile</button>
+      </form>
+    </div>
+
+    <div class="other-details">
+      {% if details %}
+          <h2>Your Details</h2>
+          <p><strong>Education:</strong> {{ details.education }}</p>
+          <p><strong>Skills:</strong> {{ details.skills }}</p>
+          <p><strong>Contact:</strong> {{ details.contact }}</p>
+          <p><strong>Address:</strong> {{ details.address }}</p>
+          <a href="{{ url_for('update_student_details') }}" class="std-btn btn-primary">Update Details</a>
+          <form method="POST" action="{{ url_for('delete_student_details') }}" class="d-inline-block">
+              <button type="submit" class="std-btn btn-danger" onclick="return confirm('Are you sure you want to delete your details?')">Delete Details</button>
+          </form>
+      {% else %}
+          <p>No details found. <a href="{{ url_for('create_student_details') }}" class="std-btn btn-primary">Add Details</a></p>
+      {% endif %}
+
+      <h2>Your Resumes</h2>
+      <a href="{{ url_for('upload_resume') }}" class="std-btn btn-primary">Upload Resume</a>
+      <ul>
+          {% for resume in user.resumes %}
+              <li class="resume-item">
+                <a href="{{ url_for('static', filename='uploads/resumes/' ~ resume.filename) }}" target="_blank">{{ resume.filename }}</a>
+                <form action="{{ url_for('delete_resume', resume_id=resume.id) }}" method="POST" style="display:inline;">
+                    <button type="submit" class="std-btn btn-danger btn-sm">Delete</button>
+                </form>
+              </li>
+          {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="dashboard-links">
+    <a href="{{ url_for('student_vacancies') }}" class="btn btn-primary">View All Vacancies</a>
+    <a href="{{ url_for('applied_vacancies') }}" class="btn btn-primary">View Applied Vacancies</a>
+</div>
+</div>
+</div>
+{% endblock %}

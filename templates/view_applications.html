@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <h1>Applications for Your Vacancies</h1>
+    {% if applications %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Vacancy</th>
+                    <th>Applicant Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Applied On</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for application in applications %}
+                    <tr>
+                        <td>{{ application.vacancy.title }}</td>
+                        <td>{{ application.student.username }}</td>
+                        <td>{{ application.student.email }}</td>
+                        <td>{{ application.student.phone }}</td>
+                        <td>{{ application.status }}</td>
+                        <td>{{ application.applied_date }}</td>
+                        <td>
+                            <a href="{{ url_for('update_application_status', application_id=application.id) }}" class="btn btn-warning">Update Status</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No applications found for your vacancies.</p>
+    {% endif %}
+</div>
+{% endblock %}

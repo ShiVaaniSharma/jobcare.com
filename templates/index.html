@@ -1,0 +1,421 @@
+{% extends 'base.html' %}
+{% block title %}JobCare.com{% endblock title %} 
+{% block body %}
+
+  <!-- Header -->
+  <div id="main">
+
+    <div id="nav-bar">
+      <div id="lnav">
+          <img id="logo-img" src="{{ url_for('static', filename='images/logo-for-dark-bg.png') }}" alt="">
+      </div>
+      <div id="mnav">
+        <a href="{{ url_for('index') }}#hero">Home</a>
+        <a href="{{ url_for('index') }}#our-services">Services</a>
+        <a href="{{ url_for('index') }}#how-it-works">how it works</a>
+        <a href="{{ url_for('index') }}#suc-stories">Success Stories</a>
+      </div>
+      <div id="rnav">
+          <button onclick="location.href='/login'" class="nav-btn">Login</button>
+          <button onclick="location.href='/register'" class="nav-btn">Sign Up</button>
+          <!-- <button onclick="location.href='/jobs'" class="login-btn">jobs</button> -->
+      </div>
+  </div>
+  <!--============== Hero Section ===============-->
+  <section id="hero-section">
+        <div id="square"></div>
+          <h3 id="head-hero-txt">Empowering Your Tech Journey</h3>
+          <p id="sub-hero-txt">Connecting students with tech giants and helping recruiters find top talent.</p>
+          <div id="btn-cntn">
+            <button class="cta-btn" onclick="location.href='/register'"><span>Get Started <i class="fa-solid fa-arrow-up"></i></span></button>
+  </section>
+  <!-- ===============Features Section===================== -->
+  <section id="our-services">
+    <h2>Our Services</h2>
+    <div class="services-container">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <h3>Student Counseling</h3>
+        <p>Providing guidance and support to help students prepare for their careers.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <h3>Job Opportunities</h3>
+        <p>Connecting students with various job opportunities through our vast network.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+        <h3>Workshops & Seminars</h3>
+        <p>Organizing workshops and seminars to enhance skills and industry knowledge.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-building"></i>
+        </div>
+        <h3>Recruiter Partnerships</h3>
+        <p>Building strong partnerships with recruiters for better placement opportunities.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <h3>Networking Events</h3>
+        <p>Hosting networking events to connect students with industry professionals.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>24/7 Support</h3>
+        <p>Offering round-the-clock support to assist students and recruiters with their needs.</p>
+      </div>
+    </div>
+  </section>
+  <!-- ============================================scroll to top=============================================== -->
+  <div id="top-button" onclick="scrollToTop()">⬆️</div>
+  <!-- ==========================================how it works================================================= -->
+  <section id="how-it-works">
+    <h2>How It Works</h2>
+    <h3>For Students</h3>
+    <div id="steps-grid">
+      <div class="step">
+        <div class="icon"><i class="fa fa-user"></i></div>
+        <h4>Step 1</h4>
+        <p>Sign up & create your profile</p>
+      </div>
+      <div class="step">
+        <div class="icon"><i class="fa fa-briefcase"></i></div>
+        <h4>Step 2</h4>
+        <p>Explore job opportunities</p>
+      </div>
+      <div class="step">
+        <div class="icon"><i class="fa fa-handshake"></i></div>
+        <h4>Step 3</h4>
+        <p>Apply & connect with recruiters</p>
+      </div>
+      <div class="step">
+        <div class="icon"><i class="fa fa-trophy"></i></div>
+        <h4>Step 4</h4>
+        <p>Get hired for your dream job</p>
+      </div>
+    </div>
+  
+    <h3>For Recruiters</h3>
+    <div id="recruiter-steps-grid">
+      <div class="step">
+        <div class="icon"><i class="fa fa-user-plus"></i></div>
+        <h4>Step 1</h4>
+        <p>Sign up & create your company profile</p>
+      </div>
+      <div class="step">
+        <div class="icon"><i class="fa fa-search"></i></div>
+        <h4>Step 2</h4>
+        <p>Post job openings</p>
+      </div>
+      <div class="step">
+        <div class="icon"><i class="fa fa-users"></i></div>
+        <h4>Step 3</h4>
+        <p>Review applications & shortlist candidates</p>
+      </div>
+      <div class="step">
+        <div class="icon"><i class="fa fa-comments"></i></div>
+        <h4>Step 4</h4>
+        <p>Conduct interviews & hire</p>
+      </div>
+    </div>
+  </section>
+<!-- ============================success stories======================= -->
+<section id="suc-stories">
+  <div id="suc-profile-txt">
+    <h2>Success Stories</h2>
+  </div>
+ 
+  <div class="suc-profile-section">
+  <div class="suc-profile-card">
+    <div class="suc-profile-info">
+      <img src="{{ url_for('static', filename='images/profile-pics/1.png') }}" alt="Profile Picture">
+      <div>
+        <h3>Jane Doe</h3>
+        <p>Web Developer</p>
+      </div>
+    </div>
+    <div class="suc-accordion-content">
+      <p>JobCare.com helped me land my first job in tech. Highly recommend!</p>
+    </div>
+  </div>
+
+  <div class="suc-profile-card">
+    <div class="suc-profile-info">
+      <img src="{{ url_for('static', filename='images/profile-pics/2.png') }}" alt="Profile Picture">
+      <div>
+        <h3>John Smith</h3>
+        <p>Software Engineer</p>
+      </div>
+    </div>
+    <div class="suc-accordion-content">
+      <p>I was able to connect with top companies directly. Excellent platform!</p>
+    </div>
+  </div>
+
+  <div class="suc-profile-card">
+    <div class="suc-profile-info">
+      <img src="{{ url_for('static', filename='images/profile-pics/3.png') }}" alt="Profile Picture">
+      <div>
+        <h3>Alice Johnson</h3>
+        <p>Project Manager</p>
+      </div>
+    </div>
+    <div class="suc-accordion-content">
+      <p>We found exceptional candidates through JobCare. The platform is easy to use!</p>
+    </div>
+  </div>
+
+  <div class="suc-profile-card">
+    <div class="suc-profile-info">
+      <img src="{{ url_for('static', filename='images/profile-pics/4.png') }}" alt="Profile Picture">
+      <div>
+        <h3>Bob Brown</h3>
+        <p>Data Analyst</p>
+      </div>
+    </div>
+    <div class="suc-accordion-content">
+      <p>The personalized job recommendations were spot on. Got multiple offers!</p>
+    </div>
+  </div>
+
+  <div class="suc-profile-card">
+    <div class="suc-profile-info">
+      <img src="{{ url_for('static', filename='images/profile-pics/5.png') }}" alt="Profile Picture">
+      <div>
+        <h3>Emily Clark</h3>
+        <p>UI/UX Designer</p>
+      </div>
+    </div>
+    <div class="suc-accordion-content">
+      <p>Our recruitment process has never been smoother. Thanks to JobCare!</p>
+    </div>
+  </div>
+
+  <div class="suc-profile-card">
+    <div class="suc-profile-info">
+      <img src="{{ url_for('static', filename='images/profile-pics/6.png') }}" alt="Profile Picture">
+      <div>
+        <h3>Michael Lee</h3>
+        <p>DevOps Engineer</p>
+      </div>
+    </div>
+    <div class="suc-accordion-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel velit euismod, feugiat justo eget, dapibus ligula.</p>
+    </div>
+  </div>
+
+  <div class="suc-profile-card">
+    <div class="suc-profile-info">
+      <img src="{{ url_for('static', filename='images/profile-pics/7.png') }}" alt="Profile Picture">
+      <div>
+        <h3>Michael Lee</h3>
+        <p>DevOps Engineer</p>
+      </div>
+    </div>
+    <div class="suc-accordion-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel velit euismod, feugiat justo eget, dapibus ligula.</p>
+    </div>
+  </div>
+</div>
+</section>
+<!-------============ Popular Companies & Job Listings  ======================------->
+<section id="prominent-recruiters">
+  <div id="marquee-section-text">
+    <div class="marquee marquee--borders" style="--duration: 100s">
+      <div class="marquee__group">
+      <h2>Our Prominent Recruiters</h2>
+      <h2 aria-hidden="true">Our Prominent Recruiters</h2>
+      <h2 aria-hidden="true">Our Prominent Recruiters</h2>
+        </div>
+        <div aria-hidden="true" class="marquee__group">
+        <h2>Our Prominent Recruiters</h2>
+        <h2>Our Prominent Recruiters</h2>
+        <h2>Our Prominent Recruiters</h2>
+        </div>
+    </div>
+    </div>
+      <!-- <h2>Our Prominent Recruiters</h2> -->
+      <div class="recruiters-container">
+        <!-- First Row -->
+        <div class="recruiter-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Logo">
+          <h4>Google</h4>
+          <p>Innovating the web</p>
+        </div>
+        <div class="recruiter-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo">
+          <h4>Microsoft</h4>
+          <p>Empowering people globally</p>
+        </div>
+        <div class="recruiter-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+          <h4>Amazon</h4>
+          <p>Driving global commerce</p>
+        </div>
+        <div class="recruiter-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Logo">
+          <h4>Apple</h4>
+          <p>Revolutionizing technology</p>
+        </div>
+        <div class="recruiter-card">
+          <img src="https://logo.clearbit.com/meta.com" alt="Meta Logo">
+
+          <h4>Meta</h4>
+          <p>Connecting the world</p>
+        </div>
+        <div class="recruiter-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Logo">
+          <h4>IBM</h4>
+          <p>Building smarter solutions</p>
+        </div>
+        <!-- Second Row -->
+        <div class="recruiter-card">
+          <img src="https://logo.clearbit.com/oracle.com" alt="Oracle Logo">
+
+          <h4>Oracle</h4>
+          <p>Redefining data management</p>
+        </div>
+        <div class="recruiter-card">
+          <img src="https://logo.clearbit.com/adobe.com" alt="Adobe Logo">
+
+          <h4>Adobe</h4>
+          <p>Designing creativity</p>
+        </div>
+        <div class="recruiter-card">
+          <img src="https://logo.clearbit.com/dell.com" alt="Dell Logo">
+
+          <h4>Dell</h4>
+          <p>Innovating technology solutions</p>
+        </div>
+        <div class="recruiter-card">
+          <img src="https://logo.clearbit.com/cisco.com" alt="Cisco Logo">
+
+          <h4>Cisco</h4>
+          <p>Powering the internet</p>
+        </div>
+        <div class="recruiter-card">
+          <img src="https://logo.clearbit.com/sap.com" alt="SAP Logo">
+
+          <h4>SAP</h4>
+          <p>Accelerating business innovation</p>
+        </div>
+        <div class="recruiter-card">
+          <img src="https://logo.clearbit.com/intel.com" alt="Intel Logo">
+
+          <h4>Intel</h4>
+          <p>Advancing computing power</p>
+        </div>
+      </div>
+    </section>
+    <!-- =======================marquee for skills========================== -->
+    <section id="marquee-section">
+    <div class="marquee">
+        <div class="marquee__group">
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/1.png') }}" alt="Image 1"></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/2.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/3.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/4.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/5.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/6.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/7.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/8.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/9.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/10.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/11.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/12.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/19.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/21.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/13.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/14.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/15.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/16.png') }}" alt=""></div>
+            <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/18.png') }}" alt=""></div>
+        </div>
+    
+        <div aria-hidden="true" class="marquee__group">
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/1.png') }}" alt="Image 1"></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/2.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/3.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/4.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/5.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/6.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/7.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/8.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/9.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/10.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/11.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/12.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/19.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/21.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/13.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/14.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/15.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/16.png') }}" alt=""></div>
+          <div class="imgcont"><img id="logo-img" src="{{ url_for('static', filename='images/18.png') }}" alt=""></div>
+        </div>
+    </div>
+    
+  
+  </section>
+            <!-- Your Foooter content -->
+ <!-- ================================================ -->
+<div id="footer-section" >
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Company</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">About Developer</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Queries</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <form>
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+             </div>
+             <div class="copyright-container">
+              <p class="copyright-text">&copy; 2024 JobCare.com | All Rights Reserved.</p>
+              <p class="footer-developer">
+                Developed with ❤️ by <strong class="footer-name">Shivani</strong>
+              </p>
+            </div>
+        </div>
+    </footer>
+</div>
+</div>
+
+{% endblock %}

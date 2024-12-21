@@ -1,0 +1,23 @@
+
+
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="update-form-container">
+    <form method="POST" enctype="multipart/form-data">
+        <div class="update-form-group">
+            <label for="full_name_input">Full Name</label>
+            <input type="text" id="full_name_input" name="full_name" value="{{ profile.full_name }}" required>
+        </div>
+        <div class="update-form-group">
+            <label for="bio_textarea">Bio</label>
+            <textarea id="bio_textarea" name="bio">{{ profile.bio }}</textarea>
+        </div>
+        <div class="update-form-group">
+            <label for="update_pic_input">Profile Picture</label>
+            <input type="file" id="profile_pic_input" name="profile_pic">
+        </div>
+        <button type="submit" class="update-btn-submit">Update Profile</button>
+    </form>
+</div>
+{% endblock body %}
